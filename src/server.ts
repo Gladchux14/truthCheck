@@ -2,10 +2,16 @@
 import app from './app';
 import { connectDB } from './configs/database';
 import config from "./configs/config";
+import express from 'express';
+import mongoose from 'mongoose';
 
-const PORT = config.server.port || 9000;
 
-// Connect to database
+import dotenv from "dotenv";
+dotenv.config();
+
+
+const PORT = process.env.PORT || 3000;
+//Connect to database
 const start = async () => {
   try {
     connectDB();
@@ -20,3 +26,4 @@ app.listen(PORT, () => {
 };
 
 start();
+

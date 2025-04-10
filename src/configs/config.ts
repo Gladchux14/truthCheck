@@ -7,16 +7,11 @@ dotenv.config({
 });
 
 const envSchema = Joi.object().keys({
-//   NODE_ENV: Joi.string().valid('production', 'development', 'test').required(),
-//   PORT: Joi.number().required().default('4000'),
-//   ACCESS_TOKEN_SECRET: Joi.string().min(8).required(),
-//   API_V1_STR:Joi.string().required(),
-//   MONGO_URI:Joi.string().required(),
-//   ACCESS_TOKEN_EXPIRE: Joi.string().required().default('20m'),
-//   REFRESH_TOKEN_SECRET: Joi.string().min(8).required(),
-//   REFRESH_TOKEN_EXPIRE: Joi.string().required().default('1d'),
-//   REFRESH_TOKEN_COOKIE_NAME: Joi.string().required().default('jid'),
-
+  NODE_ENV: Joi.string().valid('production', 'development', 'test').required(),
+  PORT: Joi.number().required().default('4000'),
+  ACCESS_TOKEN_SECRET: Joi.string().min(8).required(),
+  API_V1_STR:Joi.string().required(),
+  MONGO_URI:Joi.string().required(),
 });
 
 const { value: validatedEnv, error } = envSchema

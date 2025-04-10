@@ -1,4 +1,4 @@
-import express, { Application, Request, Response, NextFunction } from 'express';
+import express, { Application, Request, Response, NextFunction, Express } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import swaggerUi from 'swagger-ui-express';
@@ -7,6 +7,8 @@ import { errorHandler } from './middlewares/error.middleware';
 import { requestLogger } from './middlewares/logging.middleware';
 import { NotFoundError } from './utils/error.class';
 // import userRoutes from './routes/userRoutes';
+// import connectDB from './server';
+// import dotenv from 'dotenv';
 
 
 const app: Application = express();
@@ -42,3 +44,8 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 });
 
 export default app;
+
+// connectDB();
+// app.listen(PORT, () => {
+// console.log(`server is running on HTTPS://localhost:${PORT}`);
+// });

@@ -1,4 +1,4 @@
-// config/db.js
+//config/db.js
 import mongoose from 'mongoose';
 import config from "../configs/config";
 
