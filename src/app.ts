@@ -6,7 +6,8 @@ import swaggerSpecs from './configs/swagger';
 import { errorHandler } from './middlewares/error.middleware';
 import { requestLogger } from './middlewares/logging.middleware';
 import { NotFoundError } from './utils/error.class';
-// import userRoutes from './routes/userRoutes';
+import userRoutes from './routes/user.routes';
+import authRoutes from './routes/auth.route';
 // import connectDB from './server';
 // import dotenv from 'dotenv';
 
@@ -27,8 +28,10 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs, {
   }));
 
 // Routes
-// app.use('/api/users', userRoutes);
+ app.use('/api/users', userRoutes);
+ app.use('/api/auth', authRoutes);
 
+ 
 // Handle undefined routes
 app.all('', (req: Request, res: Response, next: NextFunction) => {
     next(new NotFoundError(`Cannot find ${req.originalUrl} on this server`));
