@@ -1,9 +1,9 @@
 
 import app from './app';
 import { connectDB } from './configs/database';
-import config from "./configs/config";
-import express from 'express';
-import mongoose from 'mongoose';
+// import config from "./configs/config";
+// import express from 'express';
+// import mongoose from 'mongoose';
 
 
 import dotenv from "dotenv";
