@@ -1,5 +1,7 @@
 import express, { Application, Request, Response, NextFunction, Express } from 'express';
 import cors from 'cors';
+import dotenv from 'dotenv';
+import verifyRoutes from './routes/verify.routes';
 import helmet from 'helmet';
 import swaggerUi from 'swagger-ui-express';
 import swaggerSpecs from './configs/swagger';
@@ -11,7 +13,10 @@ import { NotFoundError } from './utils/error.class';
 // import dotenv from 'dotenv';
 
 
-const app: Application = express();
+
+dotenv.config();
+const app: Express = express();
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
@@ -27,7 +32,7 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs, {
   }));
 
 // Routes
-// app.use('/api/users', userRoutes);
+app.use('/api/verify', verifyRoutes);
 
 // Handle undefined routes
 app.all('', (req: Request, res: Response, next: NextFunction) => {
