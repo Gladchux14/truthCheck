@@ -52,7 +52,7 @@ const options: swaggerJsdoc.Options = {
       }
     }
   },
-  apis: ['./src/routes/*.ts']  // Path to the API routes files
+  apis: ['./src/routes/*.ts']  
 };
 
 const specs = swaggerJsdoc(options);
